@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwn5x5ooeqnck"]
+
+[ext_resource type="Texture2D" uid="uid://mkhdla1to7dl" path="res://assets/bob/background bob.png" id="1_jblpk"]
+[ext_resource type="Texture2D" uid="uid://c0e88kmf0hdxu" path="res://assets/bob/bob.png" id="2_efabq"]
+[ext_resource type="PackedScene" uid="uid://dvjnj8vxdiplf" path="res://scenes/Game.tscn" id="3_efabq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehygx"]
+atlas = ExtResource("2_efabq")
+region = Rect2(900, 0, 450, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78hbi"]
+atlas = ExtResource("2_efabq")
+region = Rect2(1800, 0, 450, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r13l"]
+atlas = ExtResource("2_efabq")
+region = Rect2(0, 0, 450, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud5vm"]
+atlas = ExtResource("2_efabq")
+region = Rect2(1350, 0, 450, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqf3u"]
+atlas = ExtResource("2_efabq")
+region = Rect2(450, 0, 450, 432)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5o8kr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehygx")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78hbi")
+}],
+"loop": true,
+"name": &"look at screen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r13l")
+}],
+"loop": true,
+"name": &"look forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud5vm")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqf3u")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}]
+
+[node name="Bob view" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_jblpk")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+zoom = Vector2(1.2, 1.35)
+
+[node name="bob" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(424, 138)
+sprite_frames = SubResource("SpriteFrames_5o8kr")
+animation = &"look at screen"
+autoplay = "look at screen"
+
+[node name="Node2D" parent="." instance=ExtResource("3_efabq")]
+position = Vector2(-43.41, 15)
+scale = Vector2(3, 3)
