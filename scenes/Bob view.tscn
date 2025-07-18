@@ -78,7 +78,7 @@ zoom = Vector2(1.2, 1.35)
 
 [node name="bob" type="AnimatedSprite2D" parent="."]
 z_index = 2
-position = Vector2(424, 138)
+position = Vector2(422, 138)
 sprite_frames = SubResource("SpriteFrames_5o8kr")
 animation = &"look at screen"
 autoplay = "look at screen"
